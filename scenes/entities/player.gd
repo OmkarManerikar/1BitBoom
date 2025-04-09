@@ -66,6 +66,6 @@ func head_bob(t_bob) ->Vector3:
 func throw_firball():
 	var fb=PLfireball.instantiate()
 	self.get_parent_node_3d().add_child(fb)
-	fb.global_position=self.global_position
+	fb.global_position=Camera.global_position
 	fb.global_transform.basis=Camera.global_transform.basis
 	

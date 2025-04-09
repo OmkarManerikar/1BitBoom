@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://hym38avj0e8w"]
+[gd_scene load_steps=7 format=3 uid="uid://hym38avj0e8w"]
 
 [ext_resource type="PackedScene" uid="uid://bl6qiklsxm6k8" path="res://scenes/entities/player.tscn" id="1_2oeea"]
+[ext_resource type="MeshLibrary" uid="uid://dsysscfee5yte" path="res://scenes/tiles/tiletemp.tres" id="2_8d268"]
+[ext_resource type="PackedScene" uid="uid://cwwj8da7u87om" path="res://scenes/spells/fireball.tscn" id="3_0xwkt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lu7cf"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -11,21 +13,39 @@ sky_material = SubResource("ProceduralSkyMaterial_lu7cf")
 
 [sub_resource type="Environment" id="Environment_8d268"]
 background_mode = 2
+background_energy_multiplier = 0.0
 sky = SubResource("Sky_2oeea")
+ambient_light_color = Color(0.621276, 0.55305, 0.418118, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
 tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.59923, 0.57701, 0.557886, 1)
+fog_light_energy = 0.1
+volumetric_fog_density = 0.0
 
 [node name="testworld" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8d268")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.446, 0, 0)
 use_collision = true
 size = Vector3(33, 1, 33)
 
 [node name="Player" parent="." instance=ExtResource("1_2oeea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.446, 1, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh_library = ExtResource("2_8d268")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(17, 1, 1441792, 17, 65534, 1048576, 17, 0, 1048578, 17, 65535, 1048578, 18, 65535, 1048578, 18, 0, 1048578, 19, 0, 1048578, 19, 65535, 1048578, 20, 65535, 1048578, 20, 0, 1048578, 21, 0, 1048578, 22, 0, 1048578, 22, 65535, 1048578, 21, 65535, 1048578, 23, 0, 1048578, 23, 65535, 1048578, 24, 65535, 1048578, 24, 0, 1048578, 25, 0, 1048578, 25, 65535, 1048578, 26, 65535, 1048578, 27, 65535, 1048578, 28, 65535, 1048578, 29, 65535, 1048578, 29, 65534, 655363, 30, 65534, 1048578, 30, 65535, 1048578, 29, 0, 1048578, 28, 0, 1048578, 27, 0, 1048578, 26, 0, 1048578, 26, 1, 1441792, 27, 1, 1441792, 30, 0, 1048578, 29, 1, 1441792, 28, 1, 1441792, 30, 1, 1441792, 25, 1, 1441792, 18, 65534, 1048576, 19, 65534, 1048576, 20, 65534, 1048576, 21, 65534, 1048576, 22, 65534, 1048576, 23, 65534, 1048576, 24, 65534, 1048576, 25, 65534, 1048576, 26, 65534, 1048576, 27, 65534, 1048576, 28, 65534, 1048576, 29, 65533, 655360, 29, 65532, 655360, 29, 65531, 655360, 29, 65529, 655360, 29, 65530, 655360, 29, 65528, 655360, 30, 65527, 1048576, 29, 65527, 1048577, 31, 65527, 1048576, 32, 65527, 1048576, 33, 65527, 1048576, 34, 65527, 1048576, 35, 65527, 1, 30, 65528, 2, 31, 65528, 2, 32, 65528, 2, 33, 65528, 2, 34, 65528, 2, 30, 65529, 2, 31, 65529, 2, 32, 65529, 2, 33, 65529, 2, 34, 65529, 2, 34, 65530, 2, 33, 65530, 2, 33, 65531, 2, 32, 65531, 2, 32, 65530, 2, 31, 65530, 2, 30, 65530, 2, 30, 65531, 2, 30, 65532, 2, 30, 65533, 2, 31, 65533, 2, 31, 65532, 2, 31, 65531, 2, 32, 65533, 2, 32, 65532, 2, 33, 65532, 2, 34, 65532, 2, 34, 65531, 2, 34, 65533, 2, 33, 65533, 2, 35, 65528, 0, 35, 65529, 0, 35, 65530, 0, 35, 65531, 0, 35, 65532, 0, 35, 65533, 0, 35, 65534, 0, 35, 65535, 0, 35, 0, 0, 35, 1, 1441793, 18, 1, 1441792, 19, 1, 1441792, 20, 1, 1441792, 21, 1, 1441792, 23, 1, 1441792, 22, 1, 1441792, 24, 1, 1441792, 31, 1, 1441792, 32, 1, 1441792, 33, 1, 1441792, 34, 1, 1441792, 31, 65534, 1441794, 32, 65534, 1441794, 33, 65534, 1441794, 34, 65534, 1441794, 34, 65535, 1441794, 34, 0, 1441794, 33, 0, 1441794, 32, 0, 1441794, 31, 0, 1441794, 31, 65535, 1441794, 32, 65535, 1441794, 33, 65535, 1441794)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="fireball" parent="." instance=ExtResource("3_0xwkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 1, -5)

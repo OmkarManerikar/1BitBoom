@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bovr16xa6bq5a"]
+
+[ext_resource type="PackedScene" uid="uid://dh1mfo4rfs1ku" path="res://assets/tiles.glb" id="1_7qdle"]
+
+[node name="tiles" instance=ExtResource("1_7qdle")]

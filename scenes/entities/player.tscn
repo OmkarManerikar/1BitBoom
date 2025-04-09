@@ -22,3 +22,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 current = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Pivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.352638)
+light_color = Color(0.920166, 0.917438, 0.901276, 1)
+light_energy = 10.0
+spot_range = 17.7252
+spot_angle = 41.1795

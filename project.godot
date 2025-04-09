@@ -15,6 +15,13 @@ run/main_scene="uid://hym38avj0e8w"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=360
+window/size/window_width_override=1080
+window/size/window_height_override=720
+
 [input]
 
 forward={
